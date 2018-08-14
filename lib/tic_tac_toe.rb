@@ -14,12 +14,12 @@ class TicTacToe
     [2,4,6], #diagonal_RtoL_win
   ]
 
-  def display_board(board)
-    puts " #{board[0]} | #{board[1]} | #{board[2]} "
+  def display_board
+    puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
     puts "-----------"
-    puts " #{board[3]} | #{board[4]} | #{board[5]} "
+    puts " #{@board[3]} | #{@board[4]} | #{@board[5]} "
     puts "-----------"
-    puts " #{board[6]} | #{board[7]} | #{board[8]} "
+    puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
   end
 
  def input_to_index(user_input)
@@ -80,7 +80,7 @@ class TicTacToe
  def draw?(board)
    !won?(board) && full?(board)
  end
- 
+
  def over?(board)
    won?(board) || full?(board)
  end
@@ -91,7 +91,7 @@ class TicTacToe
      board[win_index[0]]
    end
  end
- 
+
  def play(board)
    while !over?(board)
      turn(board)
@@ -102,7 +102,7 @@ class TicTacToe
      puts "Cat's Game!"
    end
  end
-  
+
 
 
 
