@@ -77,33 +77,32 @@ class TicTacToe
    end
  end
 
+ def draw?(board)
+   !won?(board) && full?(board)
+ end
+ 
+ def over?(board)
+   won?(board) || full?(board)
+ end
 
-
-def draw?(board)
-  !won?(board) && full?(board)
-end
-
-def over?(board)
-  won?(board) || full?(board)
-end
-
-def winner(board)
-  if won?(board)
-    win_index = won?(board)
-    board[win_index[0]]
-  end
-end
-
-def play(board)
-  while !over?(board)
-    turn(board)
-  end
-  if won?(board)
-    puts "Congratulations #{winner(board)}!"
-  if draw?(board)
-    puts "Cat's Game!"
-  end
-end
+ def winner(board)
+   if won?(board)
+     win_index = won?(board)
+     board[win_index[0]]
+   end
+ end
+ 
+ def play(board)
+   while !over?(board)
+     turn(board)
+   end
+   if won?(board)
+     puts "Congratulations #{winner(board)}!"
+   if draw?(board)
+     puts "Cat's Game!"
+   end
+ end
+  
 
 
 
