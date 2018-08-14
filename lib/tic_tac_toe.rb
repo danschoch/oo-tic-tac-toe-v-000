@@ -62,6 +62,49 @@ class TicTacToe
  def current_player(board)
    turn_count(board).even? == true ? "X" : "O"
  end
-  
+
+ def won?(board)
+   WIN_COMBINATIONS.detect do |win_combination|
+     board[win_combination[0]] == board[win_combination[1]] &&
+     board[win_combination[1]] == board[win_combination[2]] &&
+     position_taken?(board, win_combination[0])
+   end
+ end
+
+ def full?(board)
+   board.all? do |index|
+     index == "X" || index == "O"
+   end
+ end
+
+
+
+def draw?(board)
+  !won?(board) && full?(board)
+end
+
+def over?(board)
+  won?(board) || full?(board)
+end
+
+def winner(board)
+  if won?(board)
+    win_index = won?(board)
+    board[win_index[0]]
+  end
+end
+
+def play(board)
+  while !over?(board)
+    turn(board)
+  end
+  if won?(board)
+    puts "Congratulations #{winner(board)}!"
+  if draw?(board)
+    puts "Cat's Game!"
+  end
+end
+
+
 
 end
