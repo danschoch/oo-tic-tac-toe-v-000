@@ -86,14 +86,14 @@ class TicTacToe
    won? || full?
  end
 
- def winner(board)
+ def winner
    if won?
      win_index = won?
      @board[win_index[0]]
    end
  end
 
- def play(board)
+ def play
    while !over?(board)
      turn(board)
    end
